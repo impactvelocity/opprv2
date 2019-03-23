@@ -1,0 +1,229 @@
+
+html{
+  background: #eff1f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, "Nunito", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.topBar{
+  background: #FFF;
+  border-bottom: 1px solid #e1e5e9;
+  height: 48px;
+}
+
+.logoImage{
+  /* width: 150px; */
+  height: 48px;
+}
+
+.opTitle{
+  line-height: 48px;
+  font-size: 16px;
+  color: #39424e;
+}
+
+.opTitleText i{
+  font-size: 10px;
+  opacity: .3;
+  margin-right: 10px;
+}
+
+.opTitleText{
+  margin-left: 10px;
+}
+
+.opAuthorLink{
+  opacity: .5;
+}
+
+.opToolsSidebar{
+  background: #f4f5f8;
+  width: 64px;
+  border-left: 1px solid #dfe3e8;
+  position: fixed;
+  top: 48px;
+  right: 0px;
+  height: 100%;
+}
+
+.opToolSidebarAction{
+  border-bottom: 1px solid #dfe3e8;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.opToolSidebarAction i{
+  display: block;
+  font-size: 32px;
+  color: #acb9c7;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.opToolSidebarAction span{
+  display: block;
+  font-size: 9px;
+  text-align: center;
+  color: #acb9c7;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.opPageContainer{
+  background: #FFF;
+  margin: 15px;
+  margin-left: 15px;
+  margin-right: 78px;
+}
+
+
+.opBlockTitle{
+  padding: 15px;
+  border-bottom: 1px dashed #dae1e79c;
+  color: #5d6a7c;
+  position: relative;
+}
+
+.opBlockTitleIcon{
+  width: 48px;
+  text-align: center;
+  font-size: 32px;
+  color: #acb9c7;
+  margin-right: 5px;
+}
+
+.opBlockTitleTextHeadline{
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  font-size: 18px;
+}
+
+.opBlockTitleTextSubText{
+  font-size: 12px;
+  opacity: .7;
+}
+
+.opBlockSubActions{
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  height: 69px;
+  line-height: 69px;
+}
+
+.opBlockSubActions i{
+  margin-left: 15px;
+  opacity: .3;
+}
+
+.opBlockUserInput{
+  padding: 20px 20px;
+}
+
+.opBlockUserInput a{
+  text-decoration: none;
+  color: #0077f0;
+}
+
+.opBlockUserInput_text{
+  color: #000;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 5px 0px;
+  padding-left: 48px;
+  position: relative;
+}
+
+.opBlockUserInput_type_icon{
+  position: absolute;
+  top: 0px;
+  left: 14px;
+  color: #acb9c7;
+  opacity: .5;
+  font-size: 12px;
+  line-height: 26px;
+  height: 26px;
+}
+
+.opBlockUserInput_type_todo{
+  font-weight: bold;
+  border: 1px solid #cfd3d8;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  border-radius: 4px;
+  padding: 5px 0px;
+  margin-bottom: 10px;
+  opacity: .7;
+}
+
+.opBlockUserInput_type_todo:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.opBlockUserInput_type_todo .opBlockUserInput_type_icon{
+  /* color: #ffca00; */
+  color: #5d6a7c;
+  font-size: 18px;
+  line-height: 27px;
+  height: 27px;
+  position: relative;
+  display: inline-block;
+  width: 38px;
+}
+
+.opBlockUserInput_type_todo_task{
+  display: inline-block;
+}
+
+.opBlockUserInput_type_todo_complete{
+  opacity: .5;
+}
+
+.opBlockUserInput_type_todo_complete .opBlockUserInput_type_todo_task{
+  text-decoration: line-through;
+  color: #5d6a7c;
+}
+
+.opBlockUserInput_image{
+  margin-bottom: 20px;
+}
+
+.opBlockUserInput_image img{
+  background: #FFF;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #cfd3d8;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+}
+
+.opBlockUserInput_image a{
+  font-size: 10px;
+  color: #5d6a7c;
+  padding: 10px;
+}
+
+.opBlockUserInput_text_placeholder{
+  opacity: .8;
+  color: #5d6a7c;
+}
+
+.opBlockUserInput_text_placeholder:hover{
+  background: repeating-linear-gradient(-55deg,var(--hatch-color,rgba(0,0,0,.1)),var(--hatch-color,rgba(0,0,0,.1)) 1.5px,var(--text-shadow-color,transparent) 0,var(--text-shadow-color,transparent) 4.5px)!important;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.opBlockUserInput_text_placeholder_copy{
+  /* border-bottom: 1px solid #DDD; */
+  display: none;
+  background: #FFF;
+  font-weight: bold;
+  padding-left: 5px;
+  width: 99%;
+}
+
+.opBlockUserInput_text_placeholder:hover .opBlockUserInput_text_placeholder_copy {
+  display: inline-block;
+}
