@@ -227,3 +227,13 @@ html{
 .opBlockUserInput_text_placeholder:hover .opBlockUserInput_text_placeholder_copy {
   display: inline-block;
 }
+
+.opBlockTitleTextHeadline{
+  padding-top: 9px;
+}
+
+.opBlockUserInput_text_big{
+  font-size: 18px;
+  line-height: 24px;
+  /* font-family: Georgia,Cambria,"Times New Roman",Times,serif; */
+}
