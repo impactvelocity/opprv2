@@ -1,0 +1,115 @@
+
+
+.grid-top{
+  display: grid;
+  min-height: calc(100vh - 78px);
+  position: relative;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.area-selection{
+  height: 100%;
+  cursor: pointer;
+  /* pointer-events: none; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: hsla(0,0%,100%,.7);
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #329af070 !important;
+  /* background: #329af040 !important; */
+  background: #cfe5fc !important;
+}
+
+.area-selection input{
+  display: block;
+  border: 1px solid #329af0;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 3px;
+  font-weight: bold;
+  outline: none;
+}
+
+.area-selection button{
+  /* display: block; */
+  margin-top: 10px;
+  outline: none;
+}
+
+#displayPreview{
+  outline: none;
+}
+
+.area-selection button.cancelBoxBTN{
+  opacity: .5;
+}
+
+.area-selection-inner{
+  width: 65% !important;
+  height: auto !important;
+}
+
+.skeletonGrid.cancel {
+  /* background: rgba(245, 130, 48, 0.8); */
+  background: #fff;
+  border: none !important;
+}
+
+.cancel{
+  /* background: repeating-linear-gradient(-55deg,var(--hatch-color,rgba(0,0,0,.1)),var(--hatch-color,rgba(0,0,0,.1)) 1.5px,var(--text-shadow-color,transparent) 0,var(--text-shadow-color,transparent) 4.5px)!important; */
+}
+
+.previewingBox .cancel{
+  background: #FFF !important;
+}
+
+.previewingBox .skeletonGrid{
+  border: none !important;
+}
+
+.previewBox{
+  border: 1px solid #dfe3e7 !important;
+}
+
+.opPageContainer{
+  margin: 0px;
+  width: 75%;
+}
+
+.opCreateOnePager{
+  margin: 0px;
+  width: 25%;
+}
+
+.opCreateOnePagerInfo{
+  padding: 40px 70px;
+}
+
+.opCreateOnePagerInfo h3{
+  margin-bottom: 10px;
+}
+
+.opCreateOnePagerInfo h5{
+  font-weight: normal;
+  font-size: 14px;
+  opacity: .8;
+  margin-bottom: 20px;
+}
+
+.opCreateOnePagerInfo input{
+  outline: none !important;
+}
+
+.opCreateOnePagerInfo button{
+  margin-top: 20px;
+}
