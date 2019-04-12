@@ -3,7 +3,10 @@ html{
   background: #eff1f5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: -apple-system, BlinkMacSystemFont, "Nunito", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Nunito", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: proxima-nova, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .topBar{
@@ -71,12 +74,16 @@ html{
 }
 
 .opPageContainer{
-  background: #FFF;
+  /* background: #FFF; */
   margin: 15px;
   margin-left: 15px;
   margin-right: 78px;
 }
 
+.grid-container,
+.grid-container-skeleton{
+  background: #FFF;
+}
 
 .opBlockTitle{
   padding: 10px 15px;
@@ -249,18 +256,25 @@ html{
 .dfree-body ul,
 .dfree-body ol{
   color: #000;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 32px;
   padding: 5px 0px;
   padding-left: 48px;
+  padding-right: 50px;
   position: relative;
+  margin-bottom: 5px;
+}
+
+.dfree-body p{
+  padding: 0px;
+  padding-left: 48px;
 }
 
 .dfree-body p:before{
   font-family: "Font Awesome 5 Pro";
   content: "\f054";
   position: absolute;
-  top: 7px;
+  top: 2px;
   left: 17px;
   font-size: 12px;
   color: #dae1e7;
@@ -274,6 +288,7 @@ html{
 .dfree-body ul,
 .dfree-body ol{
   padding-left: 65px;
+  margin-bottom: 10px;
 }
 
 .dfree-body ul li:before{
@@ -300,6 +315,7 @@ html{
   font-size: 18px;
   line-height: 24px;
   font-weight: normal;
+  margin-bottom: 10px;
   /* padding-left: 0px; */
   /* padding-bottom: 0px; */
   /* padding-top: 0px; */
@@ -332,7 +348,8 @@ html{
 }
 
 .dfree-body h2{
-  font-size: 18px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 /* .dfree-body h3:before{
@@ -399,17 +416,21 @@ html{
   background: #fffbdd;
   color: #735d0e;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 21px;
-  padding: 5px 0px;
-  padding-left: 48px;
+  /* padding: 5px 0px; */
+  padding: 20px;
+  /* padding-left: 48px; */
   position: relative;
   border-radius: 3px;
   box-shadow: 0 2px 4px 0 #735d0e1c;
   border-bottom: 1px solid #735d0e30;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 10px;
 }
 
-.opBlockTextNote:before{
+/* .opBlockTextNote:before{
   font-family: "Font Awesome 5 Pro";
   content: "\f249";
   font-weight: 900;
@@ -419,4 +440,4 @@ html{
   left: 14px;
   font-size: 12px;
   color: #735d0e;
-}
+} */

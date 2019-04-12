@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://use.typekit.net/ldy4lwg.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" charset="utf-8"></script>
@@ -33,16 +34,25 @@
         var grid = _GridTemplateParser.grid;
         var template = _GridTemplateParser.template;
 
-        const areas = grid(`
-          "opB1 opB2 opB3 opB4"
-          "opB5 opB6 opB7 opB8"
-          "opB9 opB10 opB11 opB12"
-        `);
+        // const areas = grid(`
+        //   "opB1 opB2 opB3 opB4"
+        //   "opB5 opB6 opB7 opB8"
+        //   "opB9 opB10 opB11 opB12"
+        // `);
+
+        // const areas = grid(`
+        //   "opB1 opB2"
+        //   "opB3 opB4"
+        // `);
+
+        // const areas = grid(`
+        //   "opB1 opB2 opB3 opB4 opB5 opB6"
+        //   "opB7 opB8 opB9 opB10 opB11 opB12"
+        //   "opB9 opB10 opB11 opB12"
+        // `);
 
         // template grid save object
         let saveGridObj = [];
-        console.log(saveGridObj);
-
 
         $(".grid-container-skeleton").selectable({
           filter: ".skeletonGrid",
@@ -248,59 +258,6 @@
         position: absolute;
       }
 
-      .grid-container-skeleton {
-        display: grid;
-        min-height: calc(100vh - 78px);
-        position: relative;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-areas: "opB1 opB2 opB3 opB4" "opB5 opB6 opB7 opB8" "opB9 opB10 opB11 opB12";
-        overflow: hidden;
-      }
-
-      .grid-container-skeleton .skeletonGrid {
-        border: 1px dashed #dfe3e7;
-        width: 100%;
-        height: 100%;
-      }
-
-      .skeletonGrid[data-op-block-id="opB1"] {
-        grid-area: opB1;
-      }
-      .skeletonGrid[data-op-block-id="opB2"] {
-        grid-area: opB2;
-      }
-      .skeletonGrid[data-op-block-id="opB3"] {
-        grid-area: opB3;
-      }
-      .skeletonGrid[data-op-block-id="opB4"] {
-        grid-area: opB4;
-      }
-      .skeletonGrid[data-op-block-id="opB5"] {
-        grid-area: opB5;
-      }
-      .skeletonGrid[data-op-block-id="opB6"] {
-        grid-area: opB6;
-      }
-      .skeletonGrid[data-op-block-id="opB7"] {
-        grid-area: opB7;
-      }
-      .skeletonGrid[data-op-block-id="opB8"] {
-        grid-area: opB8;
-      }
-      .skeletonGrid[data-op-block-id="opB9"] {
-        grid-area: opB9;
-      }
-      .skeletonGrid[data-op-block-id="opB10"] {
-        grid-area: opB10;
-      }
-      .skeletonGrid[data-op-block-id="opB11"] {
-        grid-area: opB11;
-      }
-      .skeletonGrid[data-op-block-id="opB12"] {
-        grid-area: opB12;
-      }
-
 
     </style>
 
@@ -338,6 +295,23 @@
             <h3>New OnePager Template</h3>
             <h5>Create your own custom onepager grid template</h5>
 
+            <div class="inline-block relative w-64">
+              <select class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                <option value="2">2 Columns</option>
+                <option value="3">3 Columns</option>
+                <option value="4">4 Columns</option>
+                <option value="5">4x4 Grid</option>
+                <option value="6">3x2 Grid</option>
+                <option value="7">3x3 Grid</option>
+                <option value="8">4x2 Grid</option>
+                <option value="9">4x3 Grid</option>
+                <option value="10">4x4 Grid</option>
+              </select>
+              <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+
             <input type="text" placeholder="Title Of Template" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none">
 
             <button type="button" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"> Create </button>
@@ -349,22 +323,22 @@
 
         </div>
 
-        <div class="opPageContainer shadow float-left shadow-md">
+        <div class="opPageContainer float-left">
 
-          <div class="grid-container-skeleton">
+          <div class="grid-container-skeleton shadow shadow-md grid_4x4">
 
             <div class="skeletonGrid" data-op-block-id="opB1"></div>
             <div class="skeletonGrid " data-op-block-id="opB2"></div>
             <div class="skeletonGrid" data-op-block-id="opB3"></div>
             <div class="skeletonGrid" data-op-block-id="opB4"></div>
-            <div class="skeletonGrid" data-op-block-id="opB5"></div>
+            <!-- <div class="skeletonGrid" data-op-block-id="opB5"></div>
             <div class="skeletonGrid" data-op-block-id="opB6"></div>
             <div class="skeletonGrid" data-op-block-id="opB7"></div>
             <div class="skeletonGrid" data-op-block-id="opB8"></div>
             <div class="skeletonGrid" data-op-block-id="opB9"></div>
             <div class="skeletonGrid" data-op-block-id="opB10"></div>
             <div class="skeletonGrid" data-op-block-id="opB11"></div>
-            <div class="skeletonGrid" data-op-block-id="opB12"></div>
+            <div class="skeletonGrid" data-op-block-id="opB12"></div> -->
 
           </div>
 
