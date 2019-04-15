@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>BUILDER #onepager - Action Plans For Entrepreneurs</title>
+
+    <link href="css/vendor/preflight.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="stylesheet" href="css/builder.css">
+
+    <link href="css/vendor/tailwind.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous"> -->
+
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/ldy4lwg.css"> -->
+
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/jqueryui.js" charset="utf-8"></script>
+
+    <script src="js/templateparser.js" charset="utf-8"></script>
+    <script src="js/lodash.js"></script>
+
+    <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=eb9intk6wgwg7r9nwy8ctq049q4l9yi52sl59iifwsq6ikv3"></script> -->
+
+    <script type="text/javascript">
+
+      $(function() {
+
+        let boxCreatedCount = 0;
+
+        var _GridTemplateParser = GridTemplateParser;
+        var grid = _GridTemplateParser.grid;
+        var template = _GridTemplateParser.template;
+
+        const areas = grid(`
+          "opB1 opB2 opB3 opB4"
+          "opB5 opB6 opB7 opB8"
+          "opB9 opB10 opB11 opB12"
+        `);
+
+        // const areas = grid(`
+        //   "opB1 opB2"
+        //   "opB3 opB4"
+        // `);
+
+        // const areas = grid(`
+        //   "opB1 opB2 opB3 opB4 opB5 opB6"
+        //   "opB7 opB8 opB9 opB10 opB11 opB12"
+        //   "opB9 opB10 opB11 opB12"
+        // `);
+
+        // template grid save object
+        let saveGridObj = [];
+
+        $(".grid-container-skeleton").selectable({
+          filter: ".skeletonGrid",
+          cancel: ".cancel, .area-selection",
+          stop: function() {
+
+            var selectedBoxes = $(".opAuthorLink").empty();
+            var selectedBoxesID = [];
+
+            $(".grid-container-skeleton .skeletonGrid").each(function(index) {
+              if ( $(this).hasClass("ui-selected") ) {
+
+                selectedBoxesID.push( index + 1 );
+                // selectedBoxesID.push( $(this).data("op-block-id") );
+
+              }
+            });
+
+            // console.log(selectedBoxesID);
+            createSavedBox( selectedBoxesID );
+
+            $(".opAuthorLink").text( selectedBoxesID );
+
+          }
+        });
+
+        function createSavedBox( $boxArray ){
+
+          // remove old area-selections for testing...
+          $(".area-selection").remove();
+          $(".skeletonGrid").removeClass("currentSelected");
+
+          // add .currentSelected class to each selected box
+          $.each($boxArray, function (index, value) {
+
+            $(".skeletonGrid[data-op-block-id='opB"+ value +"']").addClass("currentSelected");
+
+          });
+
+          // get first box position
+          var $firstBoxSelected = $boxArray[0];
+          var $firstBoxSelected_position = areas.areas["opB" + $firstBoxSelected];
+          // get last box position
+          var $lastBoxSelected = $boxArray[ $boxArray.length - 1 ]
+          var $lastBoxSelected_position = areas.areas["opB" + $lastBoxSelected];
+
+          var grid_row_start = $firstBoxSelected_position.row.start;
+          var grid_column_start = $firstBoxSelected_position.column.start;
+          var grid_row_end = $lastBoxSelected_position.row.end;
+          var grid_column_end = $lastBoxSelected_position.column.end;
+
+          var grid_area = grid_row_start + " / "+ grid_column_start +" / "+ grid_row_end +" / " + grid_column_end;
+
+          var randID = guidGenerator();
+
+          $(".grid-container-skeleton").append(' <div class="area-selection" data-temp-box-id="'+ randID +'" style="grid-area: '+ grid_area +';"> <div class="area-selection-inner"><input type="text" data-temp-box-id="'+ randID +'" placeholder="Title Of Box"> <button class="saveBoxBTN bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded inline-block" data-temp-box-id="'+ randID +'" >SAVE</button> <button class="cancelBoxBTN inline-block bg-transparent border border-blue-darker hover:bg-blue-dark font-bold py-2 px-4 rounded" data-temp-box-id="'+ randID +'" >CANCEL</button> </div></div> ')
+
+          $(".area-selection input").focus();
+
+        }
+
+        // save button
+        $(document).on("click", ".saveBoxBTN", function() {
+
+          var getTempID = $(this).data("temp-box-id");
+          saveSelectedBox(getTempID)
+
+        });
+
+        $(document).on("keypress", ".area-selection-inner input", function(e) {
+            if(e.which == 13) {
+
+              var getTempID = $(this).data("temp-box-id");
+              saveSelectedBox(getTempID)
+
+            }
+        });
+
+        // cancel button
+        $(document).on("click", ".cancelBoxBTN", function() {
+
+          $(".area-selection").remove();
+
+        });
+
+        // preview Test
+        $("#displayPreview").click( function(){
+
+          $(".grid-container-skeleton").addClass("previewingBox");
+
+          // stop selecting UI
+          $(".grid-container-skeleton").selectable( "destroy" );
+
+          // run tiny mce on this ?
+          runTiny();
+
+          return false;
+        });
+
+        // save grid box
+        function saveSelectedBox(ID){
+
+          console.log(ID);
+
+          var getBoxTitle = $(".area-selection-inner input[data-temp-box-id='"+ ID +"']").val();
+          console.log(getBoxTitle);
+
+          var getBoxGridCSS = $(".area-selection[data-temp-box-id='"+ ID +"']").css("grid-area");
+          console.log(getBoxGridCSS);
+
+          var newGridBox = { id: ID, title: getBoxTitle, css: getBoxGridCSS };
+
+          // _.assign(saveGridObj, newGridBox);
+          saveGridObj.push(newGridBox)
+
+          console.log(saveGridObj);
+
+          // clean up UI
+          $(".skeletonGrid.currentSelected").addClass("cancel");
+          $(".skeletonGrid").removeClass("currentSelected");
+          $(".area-selection").remove();
+
+          // add box
+          $(".grid-container-skeleton").append(' <div class="previewBox" id="'+ newGridBox.id +'" style="grid-area: '+ newGridBox.css +';" >   <div class="opBlockTitle clearfix"><div class="opBlockTitleIcon float-left"><i class="fal fa-plus"></i></div><div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">'+ newGridBox.title +'</span></div></div> <div class="opBlockUserInput"><div class="dfree-body"></div></div> </div> ');
+
+        }
+
+        // ID Generator
+        function guidGenerator() {
+            var S4 = function() {
+               return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+            };
+            return ("boxID-"+S4()+"-"+S4());
+        }
+
+        // init tinymce editor
+        function runTiny(){
+
+          var dfreeBodyConfig = {
+            selector: '.dfree-body',
+            menubar: false,
+            inline: true,
+            plugins: [
+              'autolink',
+              'codesample',
+              'link',
+              'lists',
+              'media',
+              'powerpaste',
+              'image',
+              'quickbars',
+              'checklist',
+            ],
+            toolbar: false,
+            quickbars_insert_toolbar: 'bullist numlist h2 customInsertQuote customInsertNote checklist image',
+            quickbars_selection_toolbar: 'bold italic h2 h3 quicklink ',
+            powerpaste_word_import: 'clean',
+            powerpaste_html_import: 'clean',
+            setup: function (editor) {
+
+              editor.ui.registry.addButton('customInsertNote', {
+                icon: 'comment',
+                onAction: function (_) {
+                  editor.insertContent('<h4 class="opBlockTextNote"></h4>');
+                }
+              });
+
+              editor.ui.registry.addButton('customInsertQuote', {
+                icon: 'quote',
+                onAction: function (_) {
+                  editor.insertContent('<h3></h3>');
+                }
+              });
+
+            }
+          };
+
+          tinymce.init(dfreeBodyConfig);
+
+        }
+
+      });
+
+
+    </script>
+
+    <style media="screen">
+
+      .ui-selecting {
+        /* border: 1px dashed #ff0000 !important; */
+        background: #329af020;
+        border-color: #329af020 !important;
+      }
+
+      .ui-selected {
+        /* border: 1px solid #ff0000 !important; */
+        /* background: #d2edec; */
+      }
+
+      .ui-selectable-helper{
+        /* border: 1px solid #ff0000 !important; */
+        /* background: rgba(0, 0, 0, 0.2); */
+        position: absolute;
+      }
+
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container mx-auto">
+
+      <!-- HEADER OF APP -->
+      <div class="container topBar mx-auto">
+
+        <div class="opTopLogo float-left">
+          <img class="logoImage" src="https://dvfr2lc5dhzsq.cloudfront.net/items/2n021H0Y121b183B2R0K/Image%202019-03-20%20at%202.46.51%20PM.png?X-CloudApp-Visitor-Id=1152494&v=063c3ba8">
+        </div>
+
+        <div class="opTitle float-left">
+
+          <div class="opTitleText">
+            <i class="fas fa-chevron-right"></i>
+            <span class="font-bold inline-block">Build a #onepager grid</span>
+            <span class="opAuthorLink">[]</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ONE PAGER WORK AREA -->
+      <div class="container clearfix" style="margin-top: 15px;" >
+
+        <div class="container opCreateOnePager float-left">
+
+          <div class="opCreateOnePagerInfo">
+
+            <h3>New OnePager Template</h3>
+            <h5>Create your own custom onepager grid template</h5>
+
+            <div class="inline-block relative w-64">
+              <select class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                <option value="2">2 Columns</option>
+                <option value="3">3 Columns</option>
+                <option value="4">4 Columns</option>
+                <option value="5">4x4 Grid</option>
+                <option value="6">3x2 Grid</option>
+                <option value="7">3x3 Grid</option>
+                <option value="8">4x2 Grid</option>
+                <option value="9">4x3 Grid</option>
+                <option value="10">4x4 Grid</option>
+              </select>
+              <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+
+            <input type="text" placeholder="Title Of Template" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none">
+
+            <button type="button" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"> Create </button>
+
+            <button type="button" id="displayPreview" class="bg-white hover:bg-grey-lightest text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow"> WRITE </button>
+
+          </div>
+
+
+        </div>
+
+        <div class="opPageContainer float-left">
+
+          <div class="grid-container-skeleton shadow shadow-md grid_4x3">
+
+            <div class="skeletonGrid" data-op-block-id="opB1"></div>
+            <div class="skeletonGrid " data-op-block-id="opB2"></div>
+            <div class="skeletonGrid" data-op-block-id="opB3"></div>
+            <div class="skeletonGrid" data-op-block-id="opB4"></div>
+            <div class="skeletonGrid" data-op-block-id="opB5"></div>
+            <div class="skeletonGrid" data-op-block-id="opB6"></div>
+            <div class="skeletonGrid" data-op-block-id="opB7"></div>
+            <div class="skeletonGrid" data-op-block-id="opB8"></div>
+            <div class="skeletonGrid" data-op-block-id="opB9"></div>
+            <div class="skeletonGrid" data-op-block-id="opB10"></div>
+            <div class="skeletonGrid" data-op-block-id="opB11"></div>
+            <div class="skeletonGrid" data-op-block-id="opB12"></div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
