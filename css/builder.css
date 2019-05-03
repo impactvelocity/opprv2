@@ -83,7 +83,8 @@
 
 .opPageContainer{
   margin: 0px;
-  width: 75%;
+  width: 100%;
+  padding-left: 25px;
   padding-right: 25px;
   /* padding-bottom: 25px; */
 }
@@ -116,6 +117,63 @@
   margin-top: 20px;
 }
 
+.opBuildProgress{
+  height: 40px;
+}
+.opBuildProgressBox{
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.opBuildProgressBox h3 span{
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  opacity: .4;
+}
+
+.opBuildProgressBox p {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.opBuildStep1ProgressBar{
+  height: 5px;
+  background: #DDD;
+  border-radius: 3px;
+  margin-top: 20px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.opBuildStep1ProgressBarInner{
+  transition: width .5s;
+  height: 5px;
+  width: 0%;
+  background: #e74c3b;
+}
+
+.opBuildProgressBox_1_disabled,
+.opBuildProgressBox_2_disabled{
+  opacity: .4;
+}
+
+.previewBoxTools .opBlockUserInput{
+  height: 100%;
+  background: repeating-linear-gradient(-55deg,var(--hatch-color,rgba(0,0,0,.02)),var(--hatch-color,rgba(0,0,0,.02)) 1.5px,var(--text-shadow-color,transparent) 0,var(--text-shadow-color,transparent) 4.5px)!important;
+}
+
+.previewBoxTools .dfree-body{
+  height: 75%%;
+  /* background: #eef1f5; */
+  /* background: repeating-linear-gradient(-55deg,var(--hatch-color,rgba(0,0,0,.05)),var(--hatch-color,rgba(0,0,0,.05)) 1.5px,var(--text-shadow-color,transparent) 0,var(--text-shadow-color,transparent) 4.5px)!important; */
+}
+
+.opBoxTools{
+  padding: 20px 0px;
+}
+
 /* Grid Sizes */
 
 .grid-container-skeleton {
@@ -128,26 +186,37 @@
   overflow: hidden;
 }
 
-.grid-container-skeleton.grid_4x4 {
+.opPlaceholderExample{
+
+}
+
+.opPlaceholderExampleLine{
+  height: 16px;
+  background: #dddddd5e;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  opacity: .5;
+}
+
+/* .grid-container-skeleton.grid_4x4 {
   grid-template-areas: "opB1 opB2" "opB3 opB4";
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
 }
 
 .grid-container-skeleton.grid_4x3 {
-  /* grid-template-areas: "opB1 opB2" "opB3 opB4"; */
   grid-template-areas: "opB1 opB2 opB3 opB4" "opB5 opB6 opB7 opB8" "opB9 opB10 opB11 opB12";
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-}
+} */
 
-.grid-container-skeleton .skeletonGrid {
+/* .grid-container-skeleton .skeletonGrid {
   border: 1px dashed #dfe3e7;
   width: 100%;
   height: 100%;
-}
+} */
 
-.skeletonGrid[data-op-block-id="opB1"] {
+/* .skeletonGrid[data-op-block-id="opB1"] {
   grid-area: opB1;
 }
 .skeletonGrid[data-op-block-id="opB2"] {
@@ -182,4 +251,4 @@
 }
 .skeletonGrid[data-op-block-id="opB12"] {
   grid-area: opB12;
-}
+} */

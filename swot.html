@@ -14,6 +14,10 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/ldy4lwg.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Esteban" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/editorjs.css">
+
     <style media="screen">
 
 
@@ -55,50 +59,63 @@
 
     </style>
 
-    <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=eb9intk6wgwg7r9nwy8ctq049q4l9yi52sl59iifwsq6ikv3"></script>
+    <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=eb9intk6wgwg7r9nwy8ctq049q4l9yi52sl59iifwsq6ikv3"></script> -->
+
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/lodash.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script>
 
     <script>
 
-    var dfreeBodyConfig = {
-      selector: '.dfree-body',
-      menubar: false,
-      inline: true,
-      plugins: [
-        'autolink',
-        'codesample',
-        'link',
-        'lists',
-        'media',
-        'powerpaste',
-        'image',
-        'quickbars',
-        'checklist',
-      ],
-      toolbar: false,
-      quickbars_insert_toolbar: 'bullist numlist h2 customInsertQuote customInsertNote checklist image',
-      quickbars_selection_toolbar: 'bold italic h2 h3 quicklink ',
-      powerpaste_word_import: 'clean',
-      powerpaste_html_import: 'clean',
-      setup: function (editor) {
 
-        editor.ui.registry.addButton('customInsertNote', {
-          icon: 'comment',
-          onAction: function (_) {
-            editor.insertContent('<h4 class="opBlockTextNote"></h4>');
-          }
-        });
-
-        editor.ui.registry.addButton('customInsertQuote', {
-          icon: 'quote',
-          onAction: function (_) {
-            editor.insertContent('<h3></h3>');
-          }
-        });
-
-      }
-    };
-
-    tinymce.init(dfreeBodyConfig);
+    // var dfreeBodyConfig = {
+    //   selector: '.dfree-body',
+    //   menubar: false,
+    //   inline: true,
+    //   plugins: [
+    //     'autolink',
+    //     'codesample',
+    //     'link',
+    //     'lists',
+    //     'media',
+    //     'powerpaste',
+    //     'image',
+    //     'quickbars',
+    //     'checklist',
+    //   ],
+    //   toolbar: false,
+    //   quickbars_insert_toolbar: 'bullist numlist h2 customInsertQuote customInsertNote checklist image',
+    //   quickbars_selection_toolbar: 'bold italic h2 h3 quicklink ',
+    //   powerpaste_word_import: 'clean',
+    //   powerpaste_html_import: 'clean',
+    //   setup: function (editor) {
+    //
+    //     editor.ui.registry.addButton('customInsertNote', {
+    //       icon: 'comment',
+    //       onAction: function (_) {
+    //         editor.insertContent('<h4 class="opBlockTextNote"></h4>');
+    //       }
+    //     });
+    //
+    //     editor.ui.registry.addButton('customInsertQuote', {
+    //       icon: 'quote',
+    //       onAction: function (_) {
+    //         editor.insertContent('<h3></h3>');
+    //       }
+    //     });
+    //
+    //   }
+    // };
+    //
+    // tinymce.init(dfreeBodyConfig);
 
     </script>
 
@@ -122,6 +139,10 @@
             <span class="opAuthorLink">by Albert Humphrey</span>
           </div>
 
+        </div>
+
+        <div class="opSaveTop float-right">
+          <button id="saveContent" type="button" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded-l" name="button">SAVE</button>
         </div>
 
       </div>
@@ -165,14 +186,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-fist-raised" style="color: #2db0ba;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Strengths</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"> <h2>What about</h2><p>Something about this makes something feel better... ?</p><ul><li>What about this?</li><li>Another thing entirely?</li></ul><h3>This is a quote. A quote about life.</h3><h4 class="opBlockTextNote">This is a note!!</h4><ul class="tox-checklist"><li>Now you have to do this...</li><li>Now you gotta do this thing too</li><li>Something else...</li></ul>
- </div>
+                <div class="dfree-body" id="texteditor1" ></div>
 
               </div>
 
@@ -184,13 +207,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-exclamation-circle" style="color: #a35f90;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Weaknesses</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor2" ></div>
 
               </div>
 
@@ -202,13 +228,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-bullseye-arrow" style="color: #38a208;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Opportunities</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor3" ></div>
 
               </div>
 
@@ -220,13 +249,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-swords" style="color: #ed4f43;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Threats</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor4" ></div>
 
               </div>
 
@@ -242,4 +274,202 @@
     </div>
 
   </body>
+
+  <script type="text/javascript">
+
+  let $getContent = JSON.parse(localStorage.getItem('editorContent'));
+
+  const editor1 = new EditorJS({
+    holder: 'texteditor1',
+
+    data: $getContent[0],
+
+    tools: {
+
+      header: {
+        class: Header,
+        config: {
+          placeholder: 'Enter a header'
+        }
+      },
+
+      image: SimpleImage,
+
+      list: {
+        class: List,
+        inlineToolbar: true,
+      },
+
+      checklist: {
+        class: Checklist,
+        inlineToolbar: true,
+      },
+
+      delimiter: Delimiter,
+
+      linkTool: {
+        class: LinkTool,
+        config: {
+          endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+        }
+      },
+
+    }
+  });
+
+  const editor2 = new EditorJS({
+    holder: 'texteditor2',
+
+    data: $getContent[1],
+
+    tools: {
+      header: {
+        class: Header,
+        config: {
+          placeholder: 'Enter a header'
+        }
+      },
+      image: SimpleImage,
+      delimiter: Delimiter,
+      list: {
+        class: List,
+        inlineToolbar: true,
+      },
+      checklist: {
+        class: Checklist,
+        inlineToolbar: true,
+      },
+      linkTool: {
+        class: LinkTool,
+        config: {
+          endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+        }
+      },
+    }
+  });
+
+  const editor3 = new EditorJS({
+    holder: 'texteditor3',
+
+    data: $getContent[2],
+
+    tools: {
+      header: {
+        class: Header,
+        config: {
+          placeholder: 'Enter a header'
+        }
+      },
+      image: SimpleImage,
+      delimiter: Delimiter,
+      list: {
+        class: List,
+        inlineToolbar: true,
+      },
+      checklist: {
+        class: Checklist,
+        inlineToolbar: true,
+      },
+      linkTool: {
+        class: LinkTool,
+        config: {
+          endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+        }
+      },
+    }
+  });
+
+  const editor4 = new EditorJS({
+    holder: 'texteditor4',
+
+    data: $getContent[3],
+
+    tools: {
+      header: {
+        class: Header,
+        config: {
+          placeholder: 'Enter a header'
+        }
+      },
+      image: SimpleImage,
+      delimiter: Delimiter,
+      list: {
+        class: List,
+        inlineToolbar: true,
+      },
+      checklist: {
+        class: Checklist,
+        inlineToolbar: true,
+      },
+      linkTool: {
+        class: LinkTool,
+        config: {
+          endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+        }
+      },
+    }
+  });
+
+  $(function() {
+
+    $("#saveContent").click( function(){
+
+      let $saveContent = [];
+
+      editor1.save().then((outputData) => {
+
+        outputData["editorID"] = "editor1";
+        $saveContent.push( outputData );
+
+        editor2.save().then((outputData) => {
+
+          outputData["editorID"] = "editor2";
+          $saveContent.push( outputData );
+
+          editor3.save().then((outputData) => {
+
+            outputData["editorID"] = "editor3";
+            $saveContent.push( outputData );
+
+            editor4.save().then((outputData) => {
+
+              outputData["editorID"] = "editor4";
+              $saveContent.push( outputData );
+
+              console.log($saveContent);
+
+              localStorage.setItem('editorContent', JSON.stringify( $saveContent ) );
+
+
+            }).catch((error) => {
+
+              console.log('Saving failed: ', error)
+
+            });
+
+          }).catch((error) => {
+
+            console.log('Saving failed: ', error)
+
+          });
+
+        }).catch((error) => {
+
+          console.log('Saving failed: ', error)
+
+        });
+
+      }).catch((error) => {
+
+        console.log('Saving failed: ', error)
+
+      });
+
+
+      return false;
+    });
+
+  });
+
+  </script>
 </html>

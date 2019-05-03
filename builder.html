@@ -12,15 +12,27 @@
 
     <link href="css/vendor/tailwind.css" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/gridlayouts.css">
 
-    <!-- <link rel="stylesheet" href="https://use.typekit.net/ldy4lwg.css"> -->
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.typekit.net/ldy4lwg.css">
 
     <script src="js/jquery.js" charset="utf-8"></script>
     <script src="js/jqueryui.js" charset="utf-8"></script>
 
     <script src="js/templateparser.js" charset="utf-8"></script>
     <script src="js/lodash.js"></script>
+
+    <script src="js/gridlayouts.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/warning@latest" charset="utf-8"></script>
 
     <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=eb9intk6wgwg7r9nwy8ctq049q4l9yi52sl59iifwsq6ikv3"></script> -->
 
@@ -34,29 +46,16 @@
         var grid = _GridTemplateParser.grid;
         var template = _GridTemplateParser.template;
 
-        // const areas = grid(`
-        //   "opB1 opB2 opB3 opB4"
-        //   "opB5 opB6 opB7 opB8"
-        //   "opB9 opB10 opB11 opB12"
-        // `);
+        var areas = grid(grid_layout.g_6x6);
 
-        const areas = grid(`
-          "opB1 opB2"
-          "opB3 opB4"
-        `);
-
-        // const areas = grid(`
-        //   "opB1 opB2 opB3 opB4 opB5 opB6"
-        //   "opB7 opB8 opB9 opB10 opB11 opB12"
-        //   "opB9 opB10 opB11 opB12"
-        // `);
+        var allBoxes = [];
 
         // template grid save object
         let saveGridObj = [];
 
         $(".grid-container-skeleton").selectable({
           filter: ".skeletonGrid",
-          cancel: ".cancel, .area-selection",
+          cancel: ".cancel, .area-selection, .previewBox",
           stop: function() {
 
             var selectedBoxes = $(".opAuthorLink").empty();
@@ -74,7 +73,9 @@
             // console.log(selectedBoxesID);
             createSavedBox( selectedBoxesID );
 
-            $(".opAuthorLink").text( selectedBoxesID );
+            allBoxes = allBoxes.concat(selectedBoxesID)
+
+            // $(".opAuthorLink").text( selectedBoxesID );
 
           }
         });
@@ -138,6 +139,27 @@
 
         });
 
+        // add Column button
+        // $(document).on("click", "#addColumn", function() {
+        //
+        //   console.log("add column");
+        //
+        //   $(".grid-container-skeleton").append('<div class="skeletonGrid" data-op-block-id="opB5"></div>');
+        //   $(".grid-container-skeleton").append('<div class="skeletonGrid" data-op-block-id="opB6"></div>');
+        //
+        //   $(".grid-container-skeleton").removeClass("grid_2x2");
+        //   $(".grid-container-skeleton").addClass("grid_2x3");
+        //
+        //   console.log(grid_layout.g_2x3);
+        //
+        //   areas = grid(grid_layout.g_2x3);
+        //
+        //   console.log("crash");
+        //
+        //   $(".grid-container-skeleton").selectable("refresh");
+        //
+        // });
+
         // preview Test
         $("#displayPreview").click( function(){
 
@@ -152,23 +174,27 @@
           return false;
         });
 
+        $("#opShowContext").click( function(){
+
+          $(".opBuildProgressBox_2").removeClass("opBuildProgressBox_2_disabled");
+          $(".opBuildProgressBox_1").addClass("opBuildProgressBox_1_disabled");
+
+          showBoxTools();
+
+          return false;
+        });
+
         // save grid box
         function saveSelectedBox(ID){
 
-          console.log(ID);
-
           var getBoxTitle = $(".area-selection-inner input[data-temp-box-id='"+ ID +"']").val();
-          console.log(getBoxTitle);
 
           var getBoxGridCSS = $(".area-selection[data-temp-box-id='"+ ID +"']").css("grid-area");
-          console.log(getBoxGridCSS);
 
           var newGridBox = { id: ID, title: getBoxTitle, css: getBoxGridCSS };
 
           // _.assign(saveGridObj, newGridBox);
           saveGridObj.push(newGridBox)
-
-          console.log(saveGridObj);
 
           // clean up UI
           $(".skeletonGrid.currentSelected").addClass("cancel");
@@ -176,7 +202,9 @@
           $(".area-selection").remove();
 
           // add box
-          $(".grid-container-skeleton").append(' <div class="previewBox" id="'+ newGridBox.id +'" style="grid-area: '+ newGridBox.css +';" >   <div class="opBlockTitle clearfix"><div class="opBlockTitleIcon float-left"><i class="fal fa-plus"></i></div><div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">'+ newGridBox.title +'</span></div></div> <div class="opBlockUserInput"><div class="dfree-body"></div></div> </div> ');
+          $(".grid-container-skeleton").append(' <div class="previewBox" id="'+ newGridBox.id +'" style="grid-area: '+ newGridBox.css +';" >   <div class="opBlockTitle clearfix"><div class="opBlockTitleIcon float-left"><i class="fal fa-plus"></i></div><div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">'+ newGridBox.title +'</span></div> <div class="opBlockSubActions"><div class="opBlockSubFlyout">more Information</div><i class="fal fa-comment-alt-plus"></i></div></div> <div class="opBlockUserInput"><div class="dfree-body"> <div class="opPlaceholderExample"> <div class="opPlaceholderExampleLine" style="width: 100%;" ></div> <div class="opPlaceholderExampleLine" style="width: 80%;" ></div> <div class="opPlaceholderExampleLine" style="width: 65%;" ></div> </div> </div></div> </div> ');
+
+          checkIfComplete();
 
         }
 
@@ -186,6 +214,62 @@
                return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
             };
             return ("boxID-"+S4()+"-"+S4());
+        }
+
+        // check if grid is complete
+
+        function checkIfComplete(){
+
+          var $totalAreaSelected = _.sum(allBoxes);
+
+          $(".opBuildStep1ProgressBarInner").css("width", Math.round( $totalAreaSelected / 666 * 100 ) + "%" );
+
+          if( $totalAreaSelected == 666 ){
+
+            $("#opShowContext").removeClass("cursor-not-allowed");
+            $("#opShowContext").removeClass("opacity-50");
+            $("#opShowContext").addClass("bg-blue");
+            $("#opShowContext").addClass("text-white");
+
+          }
+
+        }
+
+        // step 2 add icon & context
+        function showBoxTools(){
+
+          $(".previewBox").addClass("previewBoxTools");
+
+          $(".previewBox").each(function(index) {
+
+            let $toolHTML = `<div class="opBoxTools"> <div id="codex-editor" class=" shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none" placeholder="Context / helper text..."></div> </div>`;
+            $(".dfree-body", this).html($toolHTML);
+
+          });
+
+          runEditorJS();
+
+        }
+
+        // init EditorJS
+        function runEditorJS() {
+
+          const editor = new EditorJS({
+            holder: 'codex-editor',
+            tools: {
+              header: Header,
+              quote: Quote,
+              list: {
+                class: List,
+                inlineToolbar: true,
+              },
+              checklist: {
+                class: Checklist,
+                inlineToolbar: true,
+              }
+            }
+          });
+
         }
 
         // init tinymce editor
@@ -288,14 +372,26 @@
       <!-- ONE PAGER WORK AREA -->
       <div class="container clearfix" style="margin-top: 15px;" >
 
-        <div class="container opCreateOnePager float-left">
+        <div class="container opCreateOnePager float-left ">
 
           <div class="opCreateOnePagerInfo">
 
-            <h3>New OnePager Template</h3>
-            <h5>Create your own custom onepager grid template</h5>
+            <!-- <h3> OnePager Title:</h3>
+            <input type="text" placeholder="Title Of Template" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none"> -->
 
-            <div class="inline-block relative w-64">
+            <div class="opBuildProgressBox opBuildProgressBox_1 bg-white shadow-md">
+              <h3> <span>Step #1:</span>  Build Grid Layout</h3>
+              <p>Map out all the boxes for your one pager</p>
+              <div class="opBuildStep1ProgressBar"> <div class="opBuildStep1ProgressBarInner"></div> </div>
+              <button type="button" id="opShowContext" class="bg-grey-light font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed outline-none"> Save & Add Context </button>
+            </div>
+
+            <div class="opBuildProgressBox opBuildProgressBox_2 opBuildProgressBox_2_disabled  bg-white shadow-md">
+              <h3> <span>Step #2:</span>  Add Context</h3>
+              <p>Give context & extra information for each box</p>
+            </div>
+
+            <!-- <div class="inline-block relative w-64">
               <select class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                 <option value="2">2 Columns</option>
                 <option value="3">3 Columns</option>
@@ -310,35 +406,67 @@
               <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
               </div>
-            </div>
+            </div> -->
 
-            <input type="text" placeholder="Title Of Template" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none">
 
-            <button type="button" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"> Create </button>
+            <!-- <button type="button" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"> Save </button> -->
 
-            <button type="button" id="displayPreview" class="bg-white hover:bg-grey-lightest text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow"> WRITE </button>
+            <!-- <button type="button" id="displayPreview" class="bg-white hover:bg-grey-lightest text-grey-darkest font-semibold py-2 px-4 border border-grey-light rounded shadow"> WRITE </button> -->
+
+            <!-- <div class="">
+              <button type="button" id="addColumn" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"> Add Column </button>
+              <button type="button" id="addRow" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"> Add Row </button>
+
+            </div> -->
 
           </div>
 
 
         </div>
 
-        <div class="opPageContainer float-left">
+        <div class="opPageContainer">
 
-          <div class="grid-container-skeleton shadow shadow-md grid_4x4">
+          <div class="grid-container-skeleton shadow shadow-md grid_6x6">
 
             <div class="skeletonGrid" data-op-block-id="opB1"></div>
-            <div class="skeletonGrid " data-op-block-id="opB2"></div>
+            <div class="skeletonGrid" data-op-block-id="opB2"></div>
             <div class="skeletonGrid" data-op-block-id="opB3"></div>
             <div class="skeletonGrid" data-op-block-id="opB4"></div>
-            <!-- <div class="skeletonGrid" data-op-block-id="opB5"></div>
+            <div class="skeletonGrid" data-op-block-id="opB5"></div>
             <div class="skeletonGrid" data-op-block-id="opB6"></div>
             <div class="skeletonGrid" data-op-block-id="opB7"></div>
             <div class="skeletonGrid" data-op-block-id="opB8"></div>
             <div class="skeletonGrid" data-op-block-id="opB9"></div>
+
             <div class="skeletonGrid" data-op-block-id="opB10"></div>
             <div class="skeletonGrid" data-op-block-id="opB11"></div>
-            <div class="skeletonGrid" data-op-block-id="opB12"></div> -->
+            <div class="skeletonGrid" data-op-block-id="opB12"></div>
+            <div class="skeletonGrid" data-op-block-id="opB13"></div>
+            <div class="skeletonGrid" data-op-block-id="opB14"></div>
+            <div class="skeletonGrid" data-op-block-id="opB15"></div>
+            <div class="skeletonGrid" data-op-block-id="opB16"></div>
+            <div class="skeletonGrid" data-op-block-id="opB17"></div>
+            <div class="skeletonGrid" data-op-block-id="opB18"></div>
+            <div class="skeletonGrid" data-op-block-id="opB19"></div>
+
+            <div class="skeletonGrid" data-op-block-id="opB20"></div>
+            <div class="skeletonGrid" data-op-block-id="opB21"></div>
+            <div class="skeletonGrid" data-op-block-id="opB22"></div>
+            <div class="skeletonGrid" data-op-block-id="opB23"></div>
+            <div class="skeletonGrid" data-op-block-id="opB24"></div>
+            <div class="skeletonGrid" data-op-block-id="opB25"></div>
+            <div class="skeletonGrid" data-op-block-id="opB26"></div>
+            <div class="skeletonGrid" data-op-block-id="opB27"></div>
+            <div class="skeletonGrid" data-op-block-id="opB28"></div>
+            <div class="skeletonGrid" data-op-block-id="opB29"></div>
+
+            <div class="skeletonGrid" data-op-block-id="opB30"></div>
+            <div class="skeletonGrid" data-op-block-id="opB31"></div>
+            <div class="skeletonGrid" data-op-block-id="opB32"></div>
+            <div class="skeletonGrid" data-op-block-id="opB33"></div>
+            <div class="skeletonGrid" data-op-block-id="opB34"></div>
+            <div class="skeletonGrid" data-op-block-id="opB35"></div>
+            <div class="skeletonGrid" data-op-block-id="opB36"></div>
 
           </div>
 

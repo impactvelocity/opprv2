@@ -87,15 +87,19 @@ html{
 
 .opBlockTitle{
   padding: 10px 15px;
-  border-bottom: 1px dashed #dae1e79c;
-  color: #424548;
+  /* border-bottom: 1px dashed #dae1e79c; */
+  border-bottom: 1px dashed #cccccca1;
+  /* color: #424548; */
+  color: #242425;
   position: relative;
+  background: #eef1f55e;
+  letter-spacing: 2px;
 }
 
 .opBlockTitleIcon{
   width: 48px;
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   color: #acb9c7;
   margin-right: 5px;
 }
@@ -114,19 +118,80 @@ html{
 
 .opBlockSubActions{
   position: absolute;
-  top: 0px;
-  right: 20px;
+  /* top: 0px; */
+  /* right: 20px;
   height: 57px;
-  line-height: 57px;
+  line-height: 57px; */
+  /* right: 0px; */
+
+  top: 12px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  letter-spacing: 0px;
+}
+
+.opBlockSubActionHelper{
+  margin-top: 10px;
+  margin-right: 10px;
+  opacity: .5;
+}
+
+.opBlockSubActions .opBlockSubFlyout {
+  position: absolute;
+  font-size: 14px;
+  width: 130px;
+  text-align: center;
+  top: 0px;
+  right: 40px;
+  background: #ffca00;
+  padding: 5px;
+  border-radius: 3px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.opBlockSubActions .opBlockSubFlyout:before{
+  content: " ";
+  position: absolute;
+  top: 8px;
+  right: -5px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #ffca00;
+}
+
+.opBlockSubActions:hover{
+  cursor: pointer;
+}
+
+.opBlockSubActions:hover .opBlockSubFlyout{
+  opacity: .9;
+}
+
+.opBlockSubActions:hover i{
+  color: #2f96fe;
+  opacity: .9;
+}
+
+.opBlockSubActions:hover i:before{
+  content: "\f4a8";
+  font-weight: bold;
 }
 
 .opBlockSubActions i{
   margin-left: 15px;
-  opacity: .3;
+  opacity: .2;
 }
 
 .opBlockUserInput{
-  padding: 20px 20px;
+  /* padding: 20px 20px; */
+  padding: 30px 40px;
+  color: #282b2d;
+  /* font-family: 'Esteban', serif; */
 }
 
 .opBlockUserInput a{
@@ -236,7 +301,7 @@ html{
 }
 
 .opBlockTitleTextHeadline{
-  padding-top: 9px;
+  padding-top: 6px;
 }
 
 .opBlockUserInput_text_big{
@@ -257,10 +322,10 @@ html{
 .dfree-body ol{
   color: #000;
   font-size: 16px;
-  line-height: 32px;
+  /* line-height: 32px; */
   padding: 5px 0px;
-  padding-left: 48px;
-  padding-right: 50px;
+  /* padding-left: 48px; */
+  /* padding-right: 50px; */
   position: relative;
   margin-bottom: 5px;
 }
@@ -270,7 +335,7 @@ html{
   padding-left: 48px;
 }
 
-.dfree-body p:before{
+/* .dfree-body p:before{
   font-family: "Font Awesome 5 Pro";
   content: "\f054";
   position: absolute;
@@ -278,20 +343,24 @@ html{
   left: 17px;
   font-size: 12px;
   color: #dae1e7;
-}
+} */
 
 .dfree-body li{
-  line-height: 21px;
+  /* line-height: 18px; */
   padding: 3px 0px;
 }
 
 .dfree-body ul,
 .dfree-body ol{
-  padding-left: 65px;
-  margin-bottom: 10px;
+  /* padding-left: 65px; */
+  /* margin-bottom: 10px; */
 }
 
-.dfree-body ul li:before{
+.dfree-body ul{
+  margin-bottom: 0px;
+}
+
+/* .dfree-body ul li:before{
   font-family: "Font Awesome 5 Pro";
   content: "\f0ca";
   position: absolute;
@@ -309,7 +378,7 @@ html{
   left: 14px;
   font-size: 12px;
   color: #dae1e7;
-}
+} */
 
 .dfree-body h3{
   font-size: 18px;
@@ -325,7 +394,7 @@ html{
   content: "";
 }
 
-.dfree-body h3:before{
+/* .dfree-body h3:before{
   font-family: "Font Awesome 5 Pro";
   content: "\f10d";
   font-weight: 900;
@@ -345,12 +414,18 @@ html{
   left: 14px;
   font-size: 12px;
   color: #dae1e7;
-}
+} */
 
 .dfree-body h2{
-  font-size: 24px;
-  margin-bottom: 10px;
+  /* font-size: 24px; */
+  font-size: 18px;
+  /* margin-bottom: 10px; */
 }
+
+/* .dfree-body h1{
+  padding: 0px !important;
+  font-size: 24px;
+} */
 
 /* .dfree-body h3:before{
   font-family: "Font Awesome 5 Pro";

@@ -12,6 +12,21 @@
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="css/editorjs.css">
+
+
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/lodash.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script>
+
     <style media="screen">
 
 
@@ -93,34 +108,34 @@
 
     </style>
 
-    <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=eb9intk6wgwg7r9nwy8ctq049q4l9yi52sl59iifwsq6ikv3"></script>
+    <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=eb9intk6wgwg7r9nwy8ctq049q4l9yi52sl59iifwsq6ikv3"></script> -->
 
     <script>
 
-    var dfreeBodyConfig = {
-      selector: '.dfree-body',
-      menubar: false,
-      inline: true,
-      plugins: [
-        'autolink',
-        'codesample',
-        'link',
-        'lists',
-        'media',
-        'powerpaste',
-        'image',
-        'quickbars',
-        'checklist'
-      ],
-      toolbar: false,
-      quickbars_insert_toolbar: 'bullist numlist checklist image',
-      quickbars_selection_toolbar: 'bold italic h2 h3 quicklink',
-      // contextmenu: 'inserttable | cell row column deletetable',
-      powerpaste_word_import: 'clean',
-      powerpaste_html_import: 'clean'
-    };
-
-    tinymce.init(dfreeBodyConfig);
+    // var dfreeBodyConfig = {
+    //   selector: '.dfree-body',
+    //   menubar: false,
+    //   inline: true,
+    //   plugins: [
+    //     'autolink',
+    //     'codesample',
+    //     'link',
+    //     'lists',
+    //     'media',
+    //     'powerpaste',
+    //     'image',
+    //     'quickbars',
+    //     'checklist'
+    //   ],
+    //   toolbar: false,
+    //   quickbars_insert_toolbar: 'bullist numlist checklist image',
+    //   quickbars_selection_toolbar: 'bold italic h2 h3 quicklink',
+    //   // contextmenu: 'inserttable | cell row column deletetable',
+    //   powerpaste_word_import: 'clean',
+    //   powerpaste_html_import: 'clean'
+    // };
+    //
+    // tinymce.init(dfreeBodyConfig);
 
     </script>
 
@@ -144,6 +159,10 @@
             <span class="opAuthorLink">by Jean-Pierre LeBanc</span>
           </div>
 
+        </div>
+
+        <div class="opSaveTop float-right">
+          <button id="saveContent" type="button" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded-l" name="button">SAVE</button>
         </div>
 
       </div>
@@ -187,20 +206,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-eye" style="color: #0077f0;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Vision</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body">
-
-                  <h2>Other formats...</h2>
-                  <h3>H3&nbsp;</h3>
-                  <p>Just a normal tag..</p>
-                  <p>This is a thing with a <a href="#">Long linik in the thing</a> </p>
-
-                </div>
+                <div class="dfree-body" id="texteditor1" ></div>
 
                 <!-- <div class="opBlockUserInput_text opBlockUserInput_text_big">
                   <div class="opBlockUserInput_type_icon"><i class="fas fa-quote-left"></i></div>
@@ -217,13 +232,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-heart" style="color: #eb798f;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Purpose</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor2" ></div>
 
               </div>
 
@@ -235,13 +253,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-heart-rate" style="color: #2db0ba;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">CORE VALUES</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor3" ></div>
 
               </div>
 
@@ -253,13 +274,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-fist-raised" style="color: #ed4f43;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">STRENGTHS</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor4" ></div>
 
               </div>
 
@@ -271,13 +295,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-brain" style="color: #a35f90;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">ENNEAGRAM</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor5" ></div>
 
               </div>
 
@@ -289,13 +316,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-calendar-check" style="color: #f5927f;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">2019 GOAL</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"> <h3></h3> </div>
+                <div class="dfree-body" id="texteditor6" ></div>
 
               </div>
 
@@ -307,13 +337,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-calendar-star" style="color: #0bb7b0;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">2019 STRATEGIES</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body"id="texteditor7" ></div>
 
               </div>
 
@@ -325,13 +358,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-bullseye-arrow" style="color: #0077f0;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">2 Year Vision</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"> <h3></h3> </div>
+                <div class="dfree-body" id="texteditor8" > </div>
 
               </div>
 
@@ -343,13 +379,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-bullseye-arrow" style="color: #0077f0;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">3 Year Vision</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"> <h3></h3> </div>
+                <div class="dfree-body" id="texteditor9" >  </div>
 
               </div>
 
@@ -361,13 +400,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-bullseye-arrow" style="color: #0077f0;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">5 Year Vision</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"> <h3></h3> </div>
+                <div class="dfree-body" id="texteditor10" ></div>
 
               </div>
 
@@ -379,13 +421,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-user-hard-hat" style="color: #f5bc3f;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Quarterly Personal Goals</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor11" ></div>
 
               </div>
 
@@ -397,13 +442,16 @@
               <div class="opBlockTitle clearfix">
                 <div class="opBlockTitleIcon float-left"><i class="fal fa-home-heart" style="color: #f89ca0;"></i></div>
                 <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Quarterly Professional Goals</span></div>
-                <div class="opBlockSubActions"><i class="far fa-question-circle"></i><i class="fas fa-ellipsis-h"></i></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
               </div>
 
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="dfree-body"></div>
+                <div class="dfree-body" id="texteditor12" ></div>
 
               </div>
 
@@ -417,6 +465,527 @@
       </div>
 
     </div>
+
+    <script type="text/javascript">
+
+      let $getContent = JSON.parse(localStorage.getItem('editorContent_JP'));
+
+      const editor1 = new EditorJS({
+        holder: 'texteditor1',
+
+        data: $getContent[0],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor2 = new EditorJS({
+        holder: 'texteditor2',
+
+        data: $getContent[1],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor3 = new EditorJS({
+        holder: 'texteditor3',
+
+        data: $getContent[2],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor4 = new EditorJS({
+        holder: 'texteditor4',
+
+        data: $getContent[3],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor5 = new EditorJS({
+        holder: 'texteditor5',
+
+        data: $getContent[4],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor6 = new EditorJS({
+        holder: 'texteditor6',
+
+        data: $getContent[5],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor7 = new EditorJS({
+        holder: 'texteditor7',
+
+        data: $getContent[6],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor8 = new EditorJS({
+        holder: 'texteditor8',
+
+        data: $getContent[7],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor9 = new EditorJS({
+        holder: 'texteditor9',
+
+        data: $getContent[8],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor10 = new EditorJS({
+        holder: 'texteditor10',
+
+        data: $getContent[9],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor11 = new EditorJS({
+        holder: 'texteditor11',
+
+        data: $getContent[10],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor12 = new EditorJS({
+        holder: 'texteditor12',
+
+        data: $getContent[11],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      $("#saveContent").click( function(){
+
+        let $saveContent = [];
+
+        editor1.save().then((outputData) => {
+          outputData["editorID"] = "editor1";
+          $saveContent.push( outputData );
+
+          editor2.save().then((outputData) => {
+            outputData["editorID"] = "editor2";
+            $saveContent.push( outputData );
+
+            editor3.save().then((outputData) => {
+              outputData["editorID"] = "editor3";
+              $saveContent.push( outputData );
+
+              editor4.save().then((outputData) => {
+                outputData["editorID"] = "editor4";
+                $saveContent.push( outputData );
+
+                editor5.save().then((outputData) => {
+                  outputData["editorID"] = "editor5";
+                  $saveContent.push( outputData );
+
+                  editor6.save().then((outputData) => {
+                    outputData["editorID"] = "editor6";
+                    $saveContent.push( outputData );
+
+                    editor7.save().then((outputData) => {
+                      outputData["editorID"] = "editor7";
+                      $saveContent.push( outputData );
+
+                      editor8.save().then((outputData) => {
+                        outputData["editorID"] = "editor8";
+                        $saveContent.push( outputData );
+
+                        editor9.save().then((outputData) => {
+                          outputData["editorID"] = "editor9";
+                          $saveContent.push( outputData );
+
+                          editor10.save().then((outputData) => {
+                            outputData["editorID"] = "editor10";
+                            $saveContent.push( outputData );
+
+                            editor11.save().then((outputData) => {
+                              outputData["editorID"] = "editor11";
+                              $saveContent.push( outputData );
+
+                              editor12.save().then((outputData) => {
+                                outputData["editorID"] = "editor12";
+                                $saveContent.push( outputData );
+
+                                localStorage.setItem('editorContent_JP', JSON.stringify( $saveContent ) );
+
+                              });
+
+                            });
+
+                          });
+
+                        });
+
+                      });
+
+                    });
+
+                  });
+
+                });
+
+              });
+
+            });
+
+          });
+
+        });
+
+      });
+
+      // localStorage.setItem('editorContent_JP', JSON.stringify( $saveContent ) );
+
+
+    </script>
 
   </body>
 </html>

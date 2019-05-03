@@ -1,0 +1,157 @@
+/* Legend */
+
+/* 1 2 3 4 5 6 */
+/* 7 8 9 10 11 12 */
+/* 13 14 15 16 17 18 */
+/* 19 20 21 22 23 24 */
+/* 25 26 27 28 29 30 */
+/* 31 32 33 34 35 36 */
+
+
+/* LAYOUTS */
+
+/* 2 x 2 */
+
+.grid-container-skeleton.grid_2x2 {
+  grid-template-areas: "opB1 opB2" "opB7 opB8";
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* 2 x 3 */
+
+.grid-container-skeleton.grid_2x3 {
+  grid-template-areas: "opB1 opB2 opB3" "opB7 opB8 opB9";
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* 6 x 6 */
+
+.grid-container-skeleton.grid_6x6 {
+  grid-template-areas: "opB1 opB2 opB3 opB4 opB5 opB6" "opB7 opB8 opB9 opB10 opB11 opB12" "opB13 opB14 opB15 opB16 opB17 opB18" "opB19 opB20 opB21 opB22 opB23 opB24" "opB25 opB26 opB27 opB28 opB29 opB30" "opB31 opB32 opB33 opB34 opB35 opB36";
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+
+/* SETUP */
+
+.skeletonGrid {
+  border: 1px dashed #dfe3e7;
+  width: 100%;
+  height: 100%;
+}
+
+.skeletonGrid[data-op-block-id="opB1"] {
+  grid-area: opB1;
+}
+.skeletonGrid[data-op-block-id="opB2"] {
+  grid-area: opB2;
+}
+.skeletonGrid[data-op-block-id="opB3"] {
+  grid-area: opB3;
+}
+.skeletonGrid[data-op-block-id="opB4"] {
+  grid-area: opB4;
+}
+.skeletonGrid[data-op-block-id="opB5"] {
+  grid-area: opB5;
+}
+.skeletonGrid[data-op-block-id="opB6"] {
+  grid-area: opB6;
+}
+.skeletonGrid[data-op-block-id="opB7"] {
+  grid-area: opB7;
+}
+.skeletonGrid[data-op-block-id="opB8"] {
+  grid-area: opB8;
+}
+.skeletonGrid[data-op-block-id="opB9"] {
+  grid-area: opB9;
+}
+
+.skeletonGrid[data-op-block-id="opB10"] {
+  grid-area: opB10;
+}
+.skeletonGrid[data-op-block-id="opB11"] {
+  grid-area: opB11;
+}
+.skeletonGrid[data-op-block-id="opB12"] {
+  grid-area: opB12;
+}
+.skeletonGrid[data-op-block-id="opB13"] {
+  grid-area: opB13;
+}
+.skeletonGrid[data-op-block-id="opB14"] {
+  grid-area: opB14;
+}
+.skeletonGrid[data-op-block-id="opB15"] {
+  grid-area: opB15;
+}
+.skeletonGrid[data-op-block-id="opB16"] {
+  grid-area: opB16;
+}
+.skeletonGrid[data-op-block-id="opB17"] {
+  grid-area: opB17;
+}
+.skeletonGrid[data-op-block-id="opB18"] {
+  grid-area: opB18;
+}
+.skeletonGrid[data-op-block-id="opB19"] {
+  grid-area: opB19;
+}
+
+.skeletonGrid[data-op-block-id="opB20"] {
+  grid-area: opB20;
+}
+.skeletonGrid[data-op-block-id="opB21"] {
+  grid-area: opB21;
+}
+.skeletonGrid[data-op-block-id="opB22"] {
+  grid-area: opB22;
+}
+.skeletonGrid[data-op-block-id="opB23"] {
+  grid-area: opB23;
+}
+.skeletonGrid[data-op-block-id="opB24"] {
+  grid-area: opB24;
+}
+.skeletonGrid[data-op-block-id="opB25"] {
+  grid-area: opB25;
+}
+.skeletonGrid[data-op-block-id="opB26"] {
+  grid-area: opB26;
+}
+.skeletonGrid[data-op-block-id="opB27"] {
+  grid-area: opB27;
+}
+.skeletonGrid[data-op-block-id="opB28"] {
+  grid-area: opB28;
+}
+.skeletonGrid[data-op-block-id="opB29"] {
+  grid-area: opB29;
+}
+
+.skeletonGrid[data-op-block-id="opB30"] {
+  grid-area: opB30;
+}
+.skeletonGrid[data-op-block-id="opB31"] {
+  grid-area: opB31;
+}
+.skeletonGrid[data-op-block-id="opB32"] {
+  grid-area: opB32;
+}
+.skeletonGrid[data-op-block-id="opB33"] {
+  grid-area: opB33;
+}
+.skeletonGrid[data-op-block-id="opB34"] {
+  grid-area: opB34;
+}
+.skeletonGrid[data-op-block-id="opB35"] {
+  grid-area: opB35;
+}
+.skeletonGrid[data-op-block-id="opB36"] {
+  grid-area: opB36;
+}
