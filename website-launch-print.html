@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Wesbite Launch #onepager - Action Plans For Entrepreneurs</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/preflight.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/editorjs.css">
+
+
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/lodash.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script>
+
+    <style media="screen">
+
+
+    .grid-container {
+      display: grid;
+      min-height: calc(100vh - 78px);
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "opBlock1 opBlock2 opBlock3";
+    }
+
+    .opBlock1 {
+      grid-area: opBlock1;
+      border-right: 2px solid #dfe3e7;
+    }
+
+    .opBlock2 {
+      grid-area: opBlock2;
+      border-right: 2px solid #dfe3e7;
+    }
+
+    .opBlock3 {
+      grid-area: opBlock3;
+      /* border-right: 2px solid #dfe3e7; */
+    }
+
+    .topBar,
+    .opToolsSidebar,
+    .opBlockSubActions{
+      display: none;
+    }
+
+    .opPageContainer{
+      margin: 0px;
+      box-shadow: none !important;
+    }
+
+    .grid-container{
+      min-height: calc(100vh) !important;
+      border: 2px solid #dfe3e6;
+    }
+
+    .opBlockTitle{
+      background: #f9fafb !important;
+      border-bottom: 2px solid #dfe3e6;
+    }
+
+    .opBlockTitleIcon{
+      font-size: 36px;
+      margin-right: 15px;
+      margin-top: 6px;
+    }
+
+    .opBlockTitleTextHeadline{
+      font-size: 36px;
+    }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container mx-auto">
+
+      <!-- HEADER OF APP -->
+      <div class="container topBar mx-auto">
+
+        <div class="opTopLogo float-left">
+          <img class="logoImage" src="https://dvfr2lc5dhzsq.cloudfront.net/items/2n021H0Y121b183B2R0K/Image%202019-03-20%20at%202.46.51%20PM.png?X-CloudApp-Visitor-Id=1152494&v=063c3ba8">
+        </div>
+
+        <div class="opTitle float-left">
+
+          <div class="opTitleText">
+            <i class="fas fa-chevron-right"></i>
+            <span class="font-bold inline-block">Website Launch Checklist</span>
+            <span class="opAuthorLink">by Dylan Jones</span>
+          </div>
+
+        </div>
+
+        <div class="opSaveTop float-right">
+          <button id="saveContent" type="button" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded-l" name="button">SAVE</button>
+        </div>
+
+      </div>
+
+      <!-- side bar tool actions -->
+      <div class="container opToolsSidebar mx-auto">
+
+        <div class="opToolSidebarAction">
+          <i class="far fa-sticky-note"></i>
+          <span>notes</span>
+        </div>
+
+        <div class="opToolSidebarAction">
+          <i class="fas fa-bars"></i>
+          <span>Tools</span>
+        </div>
+
+        <div class="opToolSidebarAction">
+          <i class="far fa-file-pdf"></i>
+          <span>pdf</span>
+        </div>
+
+        <div class="opToolSidebarAction">
+          <i class="fas fa-share"></i>
+          <span>share</span>
+        </div>
+
+      </div>
+
+      <!-- ONE PAGER WORK AREA -->
+      <div class="container clearfix mx-auto">
+
+        <div class="opPageContainer shadow shadow-md">
+
+          <div class="grid-container">
+
+            <div class="opBlock1">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+
+                <div class="opBlockTitleIcon float-left">
+                  <i class="fal fa-code" style="color: #0077f0;"></i>
+                </div>
+
+                <div class="opBlockTitleText float-left">
+                  <span class="opBlockTitleTextHeadline">Technology</span>
+                  <!-- <span class="opBlockTitleTextSubText">Make sure all the tech is working!</span> -->
+                </div>
+
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+
+              </div>
+
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor1" ></div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock2">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+
+                <div class="opBlockTitleIcon float-left">
+                  <i class="fal fa-pencil-ruler" style="color: #ca6040;"></i>
+                </div>
+
+                <div class="opBlockTitleText float-left">
+                  <span class="opBlockTitleTextHeadline">Spelling & Copy</span>
+                  <!-- <span class="opBlockTitleTextSubText">Checking everything is readable, and makes sense</span> -->
+                </div>
+
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+              <div class="dfree-body" id="texteditor2" ></div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock3">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+
+                <div class="opBlockTitleIcon float-left">
+                  <i class="fal fa-share-alt" style="color: #49a0eb;"></i>
+                </div>
+
+                <div class="opBlockTitleText float-left">
+                  <span class="opBlockTitleTextHeadline">Share The News</span>
+                  <!-- <span class="opBlockTitleTextSubText">Where to share the news and get traffic</span> -->
+                </div>
+
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor3" ></div>
+
+              </div>
+
+
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
