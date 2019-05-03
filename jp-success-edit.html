@@ -468,7 +468,11 @@
 
     <script type="text/javascript">
 
-      let $getContent = JSON.parse(localStorage.getItem('editorContent_JP'));
+      var $getContent = JSON.parse(localStorage.getItem('editorContent_JP'));
+
+      if ( $getContent == null){
+        $getContent = [];
+      }
 
       const editor1 = new EditorJS({
         holder: 'texteditor1',
