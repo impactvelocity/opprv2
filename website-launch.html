@@ -12,6 +12,21 @@
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="css/editorjs.css">
+
+
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/lodash.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script>
+
     <style media="screen">
 
 
@@ -60,6 +75,10 @@
             <span class="opAuthorLink">by Dylan Jones</span>
           </div>
 
+        </div>
+
+        <div class="opSaveTop float-right">
+          <button id="saveContent" type="button" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded-l" name="button">SAVE</button>
         </div>
 
       </div>
@@ -111,9 +130,8 @@
                 </div>
 
                 <div class="opBlockSubActions">
-                  <i class="far fa-question-circle"></i>
-                  <!-- <i class="fas fa-expand"></i> -->
-                  <i class="fas fa-ellipsis-h"></i>
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
                 </div>
 
               </div>
@@ -122,34 +140,7 @@
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Make sure all links work on homepager
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Check on mobile & tablets
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Create a site map (<a href="#">Site Map Tool</a>)
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    More stuff & tasks
-                  </div>
-                </div>
-
+                <div class="dfree-body" id="texteditor1" ></div>
 
               </div>
 
@@ -170,9 +161,8 @@
                 </div>
 
                 <div class="opBlockSubActions">
-                  <i class="far fa-question-circle"></i>
-                  <!-- <i class="fas fa-expand"></i> -->
-                  <i class="fas fa-ellipsis-h"></i>
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
                 </div>
 
               </div>
@@ -180,33 +170,7 @@
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Check for spelling mistakes!
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Does the site flow well for the visitor?
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Is it easy to find everything?
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Other stuff...
-                  </div>
-                </div>
+              <div class="dfree-body" id="texteditor2" ></div>
 
               </div>
 
@@ -227,9 +191,8 @@
                 </div>
 
                 <div class="opBlockSubActions">
-                  <i class="far fa-question-circle"></i>
-                  <!-- <i class="fas fa-expand"></i> -->
-                  <i class="fas fa-ellipsis-h"></i>
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
                 </div>
 
               </div>
@@ -237,26 +200,7 @@
               <!-- BLOCK User Input -->
               <div class="opBlockUserInput">
 
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Find Similar Products
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    Find products serving the same customer
-                  </div>
-                </div>
-
-                <div class="opBlockUserInput_text opBlockUserInput_type_todo opBlockUserInput_type_todo_complete">
-                  <div class="opBlockUserInput_type_icon"><i class="far fa-check-square"></i></div>
-                  <div class="opBlockUserInput_type_todo_task">
-                    List & Compile Competitors Website URLS
-                  </div>
-                </div>
+                <div class="dfree-body" id="texteditor3" ></div>
 
               </div>
 
@@ -272,6 +216,145 @@
       </div>
 
     </div>
+
+    <script type="text/javascript">
+
+      var $getContent = JSON.parse(localStorage.getItem('editorContent_website'));
+
+      if ( $getContent == null){
+        $getContent = [];
+      }
+
+
+      const editor1 = new EditorJS({
+        holder: 'texteditor1',
+
+        data: $getContent[0],
+
+        tools: {
+
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+
+          image: SimpleImage,
+
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+
+          delimiter: Delimiter,
+
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'https://grand-citrus.glitch.me/', // Your backend endpoint for url data fetching
+            }
+          },
+
+        }
+      });
+
+      const editor2 = new EditorJS({
+        holder: 'texteditor2',
+
+        data: $getContent[1],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+          image: SimpleImage,
+          delimiter: Delimiter,
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      const editor3 = new EditorJS({
+        holder: 'texteditor3',
+
+        data: $getContent[1],
+
+        tools: {
+          header: {
+            class: Header,
+            config: {
+              placeholder: 'Enter a header'
+            }
+          },
+          image: SimpleImage,
+          delimiter: Delimiter,
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+          linkTool: {
+            class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:8008/fetchUrl', // Your backend endpoint for url data fetching
+            }
+          },
+        }
+      });
+
+      $("#saveContent").click( function(){
+
+        let $saveContent = [];
+
+        editor1.save().then((outputData) => {
+          outputData["editorID"] = "editor1";
+          $saveContent.push( outputData );
+
+          editor2.save().then((outputData) => {
+            outputData["editorID"] = "editor2";
+            $saveContent.push( outputData );
+
+            editor3.save().then((outputData) => {
+              outputData["editorID"] = "editor3";
+              $saveContent.push( outputData );
+
+              localStorage.setItem('editorContent_website', JSON.stringify( $saveContent ) );
+
+            });
+
+
+          });
+
+        });
+
+      });
+
+
+    </script>
 
   </body>
 </html>
