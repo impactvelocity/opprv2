@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Success Plan #onepager - Action Plans For Entrepreneurs</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/preflight.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/editorjs.css">
+
+
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/lodash.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+
+
+    <style media="screen">
+
+    @page { size: A4 }
+
+    .grid-container {
+      display: grid;
+      min-height: calc(100vh - 78px);
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas: "opBlock1 opBlock1 opBlock1 opBlock2 opBlock2 opBlock2" "opBlock3 opBlock3 opBlock4 opBlock4 opBlock5 opBlock5" "opBlock6 opBlock6 opBlock6 opBlock7 opBlock7 opBlock7" "opBlock8 opBlock8 opBlock9 opBlock9 opBlock10 opBlock10" "opBlock11 opBlock11 opBlock11 opBlock12 opBlock12 opBlock12";
+    }
+
+    .opBlock1 {
+      grid-area: opBlock1;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock2 {
+      grid-area: opBlock2;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock3 {
+      grid-area: opBlock3;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock4 {
+      grid-area: opBlock4;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock5 {
+      grid-area: opBlock5;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock6 {
+      grid-area: opBlock6;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock7 {
+      grid-area: opBlock7;
+      border-bottom: 2px solid #777777;
+      /* border-right: 2px solid #777777; */
+    }
+
+    .opBlock8 {
+      grid-area: opBlock8;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock9 {
+      grid-area: opBlock9;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
+    }
+
+    .opBlock10 {
+      grid-area: opBlock10;
+      border-bottom: 2px solid #777777;
+      /* border-right: 2px solid #dfe3e7; */
+     }
+
+    .opBlock11 {
+      grid-area: opBlock11;
+      border-right: 2px solid #777777;
+     }
+
+    .opBlock12 {
+      grid-area: opBlock12;
+     }
+
+     .topBar,
+     .opToolsSidebar,
+     .opBlockSubActions{
+       display: none;
+     }
+
+     .opPageContainer{
+       margin: 0px;
+       box-shadow: none !important;
+     }
+
+     .grid-container{
+       min-height: calc(100vh) !important;
+       border: 2px solid #777777;
+     }
+
+     .opBlockTitle{
+       background: #f9fafb !important;
+       border-bottom: 2px solid #777777;
+     }
+
+     .opBlockTitleIcon{
+       font-size: 36px;
+       margin-right: 15px;
+       margin-top: 6px;
+     }
+
+     .opBlockTitleTextHeadline{
+       font-size: 36px;
+     }
+
+    </style>
+
+    <!-- <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=eb9intk6wgwg7r9nwy8ctq049q4l9yi52sl59iifwsq6ikv3"></script> -->
+
+    <script>
+
+    // var dfreeBodyConfig = {
+    //   selector: '.dfree-body',
+    //   menubar: false,
+    //   inline: true,
+    //   plugins: [
+    //     'autolink',
+    //     'codesample',
+    //     'link',
+    //     'lists',
+    //     'media',
+    //     'powerpaste',
+    //     'image',
+    //     'quickbars',
+    //     'checklist'
+    //   ],
+    //   toolbar: false,
+    //   quickbars_insert_toolbar: 'bullist numlist checklist image',
+    //   quickbars_selection_toolbar: 'bold italic h2 h3 quicklink',
+    //   // contextmenu: 'inserttable | cell row column deletetable',
+    //   powerpaste_word_import: 'clean',
+    //   powerpaste_html_import: 'clean'
+    // };
+    //
+    // tinymce.init(dfreeBodyConfig);
+
+    </script>
+
+  </head>
+  <body class="A4" >
+
+    <div class="container mx-auto">
+
+      <!-- ONE PAGER WORK AREA -->
+      <div class="container clearfix mx-auto">
+
+        <div class="opPageContainer shadow shadow-md">
+
+          <div class="grid-container">
+
+
+            <div class="opBlock1">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-eye" style="color: #0077f0;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Vision</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor1" ><div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story...">Be the most amazing. Best thing ever.</div></div></div></div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock2">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-heart" style="color: #eb798f;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Purpose</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor2" ><div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story...">Inspire &amp; create powerful tech tools that help people</div></div></div></div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock3">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-heart-rate" style="color: #2db0ba;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">CORE VALUES</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor3" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Authenticity&nbsp;</b>- I do my best to be honest and authentic to who I really am.</div></div></div><div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Connection&nbsp;</b>- I want to grow together and support the people around me.</div></div></div><div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Fairness</b>&nbsp;- It matters to me that people are fair and respectful.</div></div></div> </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock4">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-fist-raised" style="color: #ed4f43;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">STRENGTHS</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor4" >
+
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Product Design&nbsp;</b>- creating products people like to use.</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Problem Solving&nbsp;</b>- ability to figure stuff out.</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Marketing</b>&nbsp;- skill to make products people want to use.</div></div></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock5">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-brain" style="color: #a35f90;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">ENNEAGRAM</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor5" >
+
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Core Type&nbsp;</b>- 8w7</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Tri-Type&nbsp;</b>- 8-#-#</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Stack</b>&nbsp;- Intensive / Social / Self-Preservation</div></div></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock6">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-calendar-check" style="color: #f5927f;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">2019 GOAL</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor6" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story...">Commit to and launch my next venture.</div></div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock7">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-calendar-star" style="color: #0bb7b0;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">2019 STRATEGIES</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body"id="texteditor7" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Commit to Going Live&nbsp;</b>- Getting something out there.</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Working With Mentor&nbsp;</b>- asking for help is okay.</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Impact</b>&nbsp;- something that is useful.</div></div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock8">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-bullseye-arrow" style="color: #0077f0;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">2 Year Vision</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor8" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story...">Enjoying the process of growing my next legacy piece.</div></div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock9">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-bullseye-arrow" style="color: #0077f0;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">3 Year Vision</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor9" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story...">A loving and adorable family while growing a company I love working on.</div></div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock10">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-bullseye-arrow" style="color: #0077f0;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">5 Year Vision</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor10" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story...">I have created something that positively impacts 1 billion people.</div></div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock11">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-user-hard-hat" style="color: #f5bc3f;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Quarterly Personal Goals</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor11" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Lose 25 Pounds&nbsp;</b>- Gumball3000 fitness!</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Be Nice To Dorky</b>&nbsp;- really try and be nice to her.</div></div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="opBlock12">
+
+              <!-- BLOCK TITLE -->
+              <div class="opBlockTitle clearfix">
+                <div class="opBlockTitleIcon float-left"><i class="fal fa-home-heart" style="color: #f89ca0;"></i></div>
+                <div class="opBlockTitleText float-left"><span class="opBlockTitleTextHeadline">Quarterly Professional Goals</span></div>
+                <div class="opBlockSubActions">
+                  <div class="opBlockSubFlyout">more Information</div>
+                  <i class="fal fa-comment-alt-plus"></i>
+                </div>
+              </div>
+
+              <!-- BLOCK User Input -->
+              <div class="opBlockUserInput">
+
+                <div class="dfree-body" id="texteditor12" >
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Launch Fast &amp; Kill Slow&nbsp;</b>- Getting something out there quickly.</div></div></div>
+                  <div class="ce-block"><div class="ce-block__content"><div class="ce-paragraph cdx-block" contenteditable="true" data-placeholder="Tell your story..."><b>Follow Through</b>&nbsp;- just continue doing it.</div></div></div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
