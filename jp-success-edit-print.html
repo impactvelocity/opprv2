@@ -27,8 +27,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+
+
     <style media="screen">
 
+    @page { size: A4 }
 
     .grid-container {
       display: grid;
@@ -40,65 +44,65 @@
 
     .opBlock1 {
       grid-area: opBlock1;
-      border-right: 2px solid #dfe3e7;
-      border-bottom: 2px solid #dfe3e7;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock2 {
       grid-area: opBlock2;
-      border-bottom: 2px solid #dfe3e7;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock3 {
       grid-area: opBlock3;
-      border-right: 2px solid #dfe3e7;
-      border-bottom: 2px solid #dfe3e7;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock4 {
       grid-area: opBlock4;
-      border-right: 2px solid #dfe3e7;
-      border-bottom: 2px solid #dfe3e7;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock5 {
       grid-area: opBlock5;
-      border-bottom: 2px solid #dfe3e7;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock6 {
       grid-area: opBlock6;
-      border-right: 2px solid #dfe3e7;
-      border-bottom: 2px solid #dfe3e7;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock7 {
       grid-area: opBlock7;
-      border-bottom: 2px solid #dfe3e7;
-      /* border-right: 2px solid #dfe3e7; */
+      border-bottom: 2px solid #777777;
+      /* border-right: 2px solid #777777; */
     }
 
     .opBlock8 {
       grid-area: opBlock8;
-      border-right: 2px solid #dfe3e7;
-      border-bottom: 2px solid #dfe3e7;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock9 {
       grid-area: opBlock9;
-      border-right: 2px solid #dfe3e7;
-      border-bottom: 2px solid #dfe3e7;
+      border-right: 2px solid #777777;
+      border-bottom: 2px solid #777777;
     }
 
     .opBlock10 {
       grid-area: opBlock10;
-      border-bottom: 2px solid #dfe3e7;
+      border-bottom: 2px solid #777777;
       /* border-right: 2px solid #dfe3e7; */
      }
 
     .opBlock11 {
       grid-area: opBlock11;
-      border-right: 2px solid #dfe3e7;
+      border-right: 2px solid #777777;
      }
 
     .opBlock12 {
@@ -118,12 +122,12 @@
 
      .grid-container{
        min-height: calc(100vh) !important;
-       border: 2px solid #dfe3e6;
+       border: 2px solid #777777;
      }
 
      .opBlockTitle{
        background: #f9fafb !important;
-       border-bottom: 2px solid #dfe3e6;
+       border-bottom: 2px solid #777777;
      }
 
      .opBlockTitleIcon{
@@ -170,57 +174,9 @@
     </script>
 
   </head>
-  <body>
+  <body class="A4" >
 
     <div class="container mx-auto">
-
-      <!-- HEADER OF APP -->
-      <div class="container topBar mx-auto">
-
-        <div class="opTopLogo float-left">
-          <img class="logoImage" src="https://dvfr2lc5dhzsq.cloudfront.net/items/2n021H0Y121b183B2R0K/Image%202019-03-20%20at%202.46.51%20PM.png?X-CloudApp-Visitor-Id=1152494&v=063c3ba8">
-        </div>
-
-        <div class="opTitle float-left">
-
-          <div class="opTitleText">
-            <i class="fas fa-chevron-right"></i>
-            <span class="font-bold inline-block">My Success Plan</span>
-            <span class="opAuthorLink">by Jean-Pierre LeBanc</span>
-          </div>
-
-        </div>
-
-        <div class="opSaveTop float-right">
-          <button id="saveContent" type="button" class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded-l" name="button">SAVE</button>
-        </div>
-
-      </div>
-
-      <!-- side bar tool actions -->
-      <div class="container opToolsSidebar mx-auto">
-
-        <div class="opToolSidebarAction">
-          <i class="far fa-sticky-note"></i>
-          <span>notes</span>
-        </div>
-
-        <div class="opToolSidebarAction">
-          <i class="fas fa-bars"></i>
-          <span>Tools</span>
-        </div>
-
-        <div class="opToolSidebarAction">
-          <i class="far fa-file-pdf"></i>
-          <span>pdf</span>
-        </div>
-
-        <div class="opToolSidebarAction">
-          <i class="fas fa-share"></i>
-          <span>share</span>
-        </div>
-
-      </div>
 
       <!-- ONE PAGER WORK AREA -->
       <div class="container clearfix mx-auto">
